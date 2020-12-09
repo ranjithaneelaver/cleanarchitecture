@@ -19,5 +19,5 @@ interface APIInterface {
 
 
     @GET()
-    suspend fun getMovieDetails(@Url url:String, @Query("apikey")  apikey:String, @Query("i") movie:String ) : MovieDetailModule
+     fun getMovieDetails(@Url url:String, @Query("apikey")  apikey:String, @Query("i") movie:String ) : Observable<MovieDetailModule>
 }

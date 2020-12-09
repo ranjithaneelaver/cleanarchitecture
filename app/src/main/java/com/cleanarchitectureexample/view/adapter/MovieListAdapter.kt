@@ -1,7 +1,6 @@
 package com.cleanarchitectureexample.view.adapter
 
 import android.content.Context
-import android.net.Uri
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,11 +9,12 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.cleanarchitectureexample.R
+import com.cleanarchitectureexample.viewmodel.DataViewModel
 import com.domain.interfacelist.GetData
 import com.domain.module.MovieData
 
 
-class MovieListAdapter(var list: List<MovieData>, var context:Context, var listener: GetData) :
+class MovieListAdapter(var list: List<MovieData>, var context: Context, var listener: GetData) :
     RecyclerView.Adapter<MovieListAdapter.MyViewHolder>() {
 
     inner class MyViewHolder(view: View) : RecyclerView.ViewHolder(view) {
@@ -36,13 +36,14 @@ class MovieListAdapter(var list: List<MovieData>, var context:Context, var liste
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
 
         val item = list.get(position)
-        holder.title.setText(item.Title)
+        val viewModel = DataViewModel(item)
+        holder.title.setText(viewModel.title)
 
-        Glide.with(context).load(item.Poster).into(holder.image)
+        Glide.with(context).load(viewModel.image).into(holder.image)
 
-        holder.image.setOnClickListener(View.OnClickListener {
+        holder.image.setOnClickListener {
             listener.getData(item);
-        })
+        }
 
     }
 

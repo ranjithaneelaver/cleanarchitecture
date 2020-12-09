@@ -1,6 +1,7 @@
 package com.samplekotlinapplication.user.view
 
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
@@ -8,6 +9,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import com.cleanarchitectureexample.R
 import com.cleanarchitectureexample.databinding.ActivityMainBinding
+import com.cleanarchitectureexample.view.MovieDEtailActivity
 import com.cleanarchitectureexample.view.adapter.MovieListAdapter
 import com.domain.interfacelist.Emitter
 import com.domain.interfacelist.GetData
@@ -53,7 +55,11 @@ class HomeActivity() : AppCompatActivity(), GetData {
     }
 
     override fun getData(data: MovieData) {
-        TODO("Not yet implemented")
+
+        MovieDEtailActivity.newStartIntent(this,data.imdbID)
+        val intent = Intent(this, MovieDEtailActivity::class.java)
+        intent.putExtra(Constants.MOVIEID,data.imdbID)
+        startActivity(intent)
     }
 
 
