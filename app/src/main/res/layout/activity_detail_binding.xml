@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="10dp"
+        android:background="@android:color/white"
+        tools:context=".MovieDEtailActivity">
+
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            app:title="Movie Application"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+
+        <ImageView
+            android:layout_below="@+id/toolbar"
+            android:id="@+id/imageview"
+            android:layout_width="match_parent"
+            android:scaleType="fitXY"
+            android:layout_height="180dp"/>
+
+
+        <TextView
+            android:layout_below="@+id/imageview"
+            android:layout_alignParentLeft="true"
+            android:id="@+id/categories"
+            android:text="Categories"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:layout_below="@id/imageview"
+            android:gravity="center"
+            android:layout_centerHorizontal="true"
+            android:id="@+id/time"
+            android:text="12:00"
+            android:tooltipText="12.00"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:layout_below="@+id/imageview"
+            android:layout_alignParentRight="true"
+            android:gravity="right"
+            android:id="@+id/review"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+
+        <TextView
+            android:layout_marginTop="10dp"
+            android:layout_below="@+id/categories"
+            android:id="@+id/synopsis"
+            android:text="Synopsis"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="10dp"
+            android:layout_below="@+id/synopsis"
+            android:id="@+id/synopsistext"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+
+        <TextView
+            android:layout_below="@+id/synopsistext"
+            android:layout_alignParentLeft="true"
+            android:gravity="left"
+            android:id="@+id/score"
+            android:text="Score"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+
+        <TextView
+            android:layout_below="@+id/score"
+            android:id="@+id/txtscore"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:layout_below="@+id/synopsistext"
+            android:layout_centerHorizontal="true"
+            android:gravity="center"
+            android:id="@+id/reviews"
+            android:text="Reviews"
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+
+        <TextView
+            android:layout_below="@+id/reviews"
+            android:layout_centerHorizontal="true"
+            android:gravity="center"
+            android:id="@+id/txtreview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+
+        <TextView
+            android:layout_below="@+id/synopsistext"
+            android:layout_alignParentRight="true"
+            android:gravity="right"
+            android:id="@+id/popularity"
+            android:text="Popularity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+
+        <TextView
+            android:layout_below="@+id/popularity"
+            android:layout_alignParentRight="true"
+            android:gravity="right"
+            android:id="@+id/txtpopularity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+
+        <View
+            android:id="@+id/view"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_below="@+id/txtscore"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@android:color/darker_gray"/>
+
+        <TextView
+            android:layout_below="@+id/view"
+            android:id="@+id/txtdirector"
+            android:text="Director"
+            android:layout_marginRight="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:layout_below="@+id/view"
+            android:id="@+id/director"
+            android:layout_toRightOf="@+id/txtdirector"
+            android:textColor="@android:color/black"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+
+        <TextView
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_below="@+id/director"
+            android:id="@+id/txtwriter"
+            android:text="Writer"
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:layout_marginTop="10dp"
+            android:layout_below="@+id/director"
+            android:id="@+id/writer"
+            android:layout_toRightOf="@+id/txtwriter"
+            android:textColor="@android:color/black"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+
+        <TextView
+
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_below="@+id/writer"
+            android:id="@+id/txtactor"
+            android:text="Actor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:layout_marginTop="10dp"
+            android:layout_below="@+id/writer"
+            android:id="@+id/actor"
+            android:layout_toRightOf="@+id/txtactor"
+            android:textColor="@android:color/black"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+
+        <ProgressBar
+            android:layout_centerInParent="true"
+            android:id="@+id/progressBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+    </RelativeLayout>
+</layout>
