@@ -3,6 +3,7 @@ apply plugin: 'kotlin'
 ext{
     retrofitVersion = '2.6.0'
     okhttpVersion = '3.8.0'
+    koin_version = '2.2.1'
 }
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
@@ -23,6 +24,12 @@ dependencies {
     implementation 'io.reactivex.rxjava2:rxandroid:2.0.1'
     implementation "io.reactivex.rxjava2:rxjava:2.1.8"
     implementation 'com.jakewharton.retrofit:retrofit2-rxjava2-adapter:1.0.0'
+
+    //koin
+    implementation "org.koin:koin-android-viewmodel:$koin_version"
+    implementation "org.koin:koin-android:$koin_version"
+
+
 
     implementation project(':domain')
 

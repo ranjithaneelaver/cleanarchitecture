@@ -9,7 +9,7 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 
-object RetrofitClient {
+class RetrofitClient  {
     var BASE_URL: String = "https://www.omdbapi.com/"
     val getClient: APIInterface
         get() {

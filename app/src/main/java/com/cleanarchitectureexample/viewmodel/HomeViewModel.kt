@@ -8,7 +8,7 @@ import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
 
 
-class HomeViewModel : ViewModel() {
+class HomeViewModel(val retrofitclient:RetrofitClient) : ViewModel() {
     private val disposables = CompositeDisposable()
 
     init {
@@ -23,7 +23,7 @@ class HomeViewModel : ViewModel() {
         objects: com.domain.interfacelist.Emitter<MovieData>
     ) {
 
-        disposables.add(RetrofitClient.getClient.getMovieList(
+        disposables.add(retrofitclient.getClient.getMovieList(
             "http://www.omdbapi.com/?",
             apikey,
             mve,

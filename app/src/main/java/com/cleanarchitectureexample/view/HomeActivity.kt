@@ -14,19 +14,19 @@ import com.domain.interfacelist.GetData
 import com.domain.module.MovieData
 import com.domain.network.Constants
 import com.samplekotlinapplication.user.viewmodel.HomeViewModel
+import org.koin.android.viewmodel.ext.android.viewModel
 
 
 class HomeActivity() : AppCompatActivity(), GetData {
 
     lateinit var binding: ActivityMainBinding
 
-    private lateinit var viewmodel: HomeViewModel
+    private val viewmodel: HomeViewModel by viewModel()
     
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
-        viewmodel = ViewModelProvider(this).get(HomeViewModel::class.java)//
 
         viewmodel.getMovieData(Constants.APIKEY, "Marvel", "movie", object : Emitter<MovieData> {
             override fun onNext(value: MovieData) {

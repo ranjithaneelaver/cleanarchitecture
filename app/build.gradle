@@ -31,6 +31,7 @@ android {
 ext{
     retrofitVersion = '2.6.0'
     okhttpVersion = '3.8.0'
+    koin_version = '2.2.1'
 }
 dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
@@ -59,13 +60,9 @@ dependencies {
     kapt "androidx.lifecycle:lifecycle-compiler:2.2.0"
     implementation "androidx.activity:activity-ktx:1.1.0"
 
-    //dagger
-    implementation 'com.google.dagger:dagger:2.16'
-    kapt 'com.google.dagger:dagger-compiler:2.16'
-    kapt 'com.google.dagger:dagger-android-processor:2.16'
-    implementation 'com.google.dagger:dagger-android-support:2.16'
-    compileOnly("com.squareup.inject:assisted-inject-annotations-dagger2:0.3.3")
-    kapt("com.squareup.inject:assisted-inject-processor-dagger2:0.3.3")
+    //koin
+    implementation "org.koin:koin-android-viewmodel:$koin_version"
+    implementation "org.koin:koin-android:$koin_version"
 
 
     implementation project(':domain')
