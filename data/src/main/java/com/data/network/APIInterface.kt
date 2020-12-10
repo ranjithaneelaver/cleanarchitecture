@@ -1,21 +1,19 @@
-package com.data
+package com.data.network
 
 
 import com.domain.module.MovieData
 import com.domain.module.MovieDetailModule
-import com.domain.network.Resource
 
 import retrofit2.http.GET
 import retrofit2.http.Query
 import retrofit2.http.Url
-import java.util.*
 import io.reactivex.Observable
 
 
 interface APIInterface {
 
     @GET()
-     fun getMovieList(@Url url:String, @Query("apikey")  apikey:String, @Query("s") movie:String, @Query("type") type:String ) : io.reactivex.Observable<MovieData>
+     fun getMovieList(@Url url:String, @Query("apikey")  apikey:String, @Query("s") movie:String, @Query("type") type:String ) : io.reactivex.Single<MovieData>
 
 
     @GET()

@@ -12,7 +12,7 @@ import com.cleanarchitectureexample.R
 import com.cleanarchitectureexample.databinding.ActivityDetailBinding
 import com.domain.interfacelist.Emitter
 import com.domain.module.MovieDetailModule
-import com.domain.network.Constants
+import com.domain.utility.Constants
 import com.samplekotlinapplication.user.viewmodel.HomeViewModel
 import org.koin.android.viewmodel.ext.android.viewModel
 
@@ -43,7 +43,7 @@ class MovieDEtailActivity : AppCompatActivity() {
 
 
 
-        viewmodel.getMovieDetail(
+      /*  viewmodel.getMovieDetail(
             Constants.APIKEY,
             intent.getStringExtra(Constants.MOVIEID),
             object : Emitter<MovieDetailModule> {
@@ -65,7 +65,7 @@ class MovieDEtailActivity : AppCompatActivity() {
 
                 }
 
-            })
+            })*/
 
 
 

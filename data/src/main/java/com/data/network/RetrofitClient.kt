@@ -1,4 +1,4 @@
-package com.data
+package com.data.network
 
 import com.google.gson.GsonBuilder
 import com.jakewharton.retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory

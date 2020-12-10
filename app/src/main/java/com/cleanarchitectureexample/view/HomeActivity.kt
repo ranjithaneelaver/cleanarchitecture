@@ -6,7 +6,6 @@ import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
-import androidx.lifecycle.ViewModelProvider
 import com.cleanarchitectureexample.R
 import com.cleanarchitectureexample.databinding.ActivityMainBinding
 import com.cleanarchitectureexample.view.MovieDEtailActivity
@@ -14,7 +13,7 @@ import com.cleanarchitectureexample.view.adapter.MovieListAdapter
 import com.domain.interfacelist.Emitter
 import com.domain.interfacelist.GetData
 import com.domain.module.MovieData
-import com.domain.network.Constants
+import com.domain.utility.Constants
 import com.samplekotlinapplication.user.viewmodel.HomeViewModel
 import org.koin.android.viewmodel.ext.android.viewModel
 
@@ -24,29 +23,34 @@ class HomeActivity() : AppCompatActivity(), GetData {
     lateinit var binding: ActivityMainBinding
 
     private val viewmodel: HomeViewModel by viewModel()
-    
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
 
-        viewmodel.getMovieData(Constants.APIKEY, "Marvel", "movie", object : Emitter<MovieData> {
-            override fun onNext(value: MovieData) {
-                binding.progressBar.visibility = View.GONE
-                updateRecyclerview(value)
-            }
 
-            override fun onError(error: Throwable?) {
-                binding.progressBar.visibility = View.GONE
-            }
+        viewmodel.requestPageData(
+            "http://www.omdbapi.com/?",
+            Constants.APIKEY,
+            "Marvel",
+            "movie",
+            object : Emitter<MovieData> {
+                override fun onNext(value: MovieData) {
+                    binding.progressBar.visibility = View.GONE
+                    println("movie" + value)
+                    updateRecyclerview(value)
+                }
 
-            override fun onComplete() {
-                binding.progressBar.visibility = View.VISIBLE
+                override fun onError(error: Throwable?) {
+                    TODO("Not yet implemented")
+                }
 
-            }
+                override fun onComplete() {
+                    TODO("Not yet implemented")
+                }
 
-        })
-
+            })
     }
 
     fun updateRecyclerview(movieData: MovieData) {
@@ -56,9 +60,9 @@ class HomeActivity() : AppCompatActivity(), GetData {
 
     override fun getData(data: MovieData) {
 
-        MovieDEtailActivity.newStartIntent(this,data.imdbID)
+        MovieDEtailActivity.newStartIntent(this, data.imdbID)
         val intent = Intent(this, MovieDEtailActivity::class.java)
-        intent.putExtra(Constants.MOVIEID,data.imdbID)
+        intent.putExtra(Constants.MOVIEID, data.imdbID)
         startActivity(intent)
     }
 

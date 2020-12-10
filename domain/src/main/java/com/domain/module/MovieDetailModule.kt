@@ -1,7 +1,5 @@
 package com.domain.module
 
-
-
 data class MovieDetailModule(
     val Title: String,
     val Year: String,
