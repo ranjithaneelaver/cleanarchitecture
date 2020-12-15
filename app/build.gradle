@@ -3,12 +3,13 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
 
+
 android {
     compileSdkVersion 29
     buildToolsVersion "29.0.3"
 
     defaultConfig {
-        applicationId "com.cleanarchitectureexample"
+        applicationId "com.cleanarchimpl"
         minSdkVersion 16
         targetSdkVersion 29
         versionCode 1
@@ -47,6 +48,7 @@ dependencies {
     implementation "io.reactivex.rxjava2:rxandroid:2.0.1"
 
     implementation 'io.reactivex.rxjava2:rxkotlin:2.2.0'
+    implementation 'com.jakewharton.retrofit:retrofit2-rxjava2-adapter:1.0.0'
 
 
     implementation 'androidx.recyclerview:recyclerview:1.1.0'
@@ -64,9 +66,18 @@ dependencies {
     implementation "org.koin:koin-android-viewmodel:$koin_version"
     implementation "org.koin:koin-android:$koin_version"
 
+    //network library
 
-    implementation project(':domain')
-    implementation project(':data')
+    implementation "com.squareup.okhttp3:okhttp:$okhttpVersion"
+    implementation "com.squareup.okhttp3:logging-interceptor:$okhttpVersion"
+
+    implementation ("com.squareup.retrofit2:retrofit:$retrofitVersion"){
+        // exclude Retrofit’s OkHttp peer-dependency module and define your own module import
+        exclude module: 'okhttp'
+    }
+    implementation "com.squareup.retrofit2:converter-gson:$retrofitVersion"
+
+
 
 
 }

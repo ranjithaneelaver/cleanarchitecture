@@ -3,7 +3,7 @@
     <data>
         <variable
             name="item"
-            type="com.domain.module.MovieDetailModule" />
+            type="com.cleanarchimpl.domain.module.MovieDetailModule" />
     </data>
     <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
